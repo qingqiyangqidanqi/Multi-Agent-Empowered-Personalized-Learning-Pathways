@@ -4,7 +4,7 @@ from openai import OpenAI
 
 def openai_chat(system_prompt, user_prompt):
 
-    (log_params, server_params, llm_params, select_server, student) = return_config()
+    (log_params, server_params, llm_params, select_server, student, cat) = return_config()
     def anal_openai_chat(llm_output: str):
         result = None
         try:

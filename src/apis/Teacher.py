@@ -29,7 +29,7 @@ router = APIRouter(
 
 class Input(BaseModel):
     student_message: str
-    
+
 async def Teacher_Check(
     request: Request,
     logger: logging.Logger,

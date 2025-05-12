@@ -1,5 +1,50 @@
 ######################################################
 ##
+##   平台生产环境配置文件
+##
+######################################################
+
+## 日志配置
+#LOG:
+#  # 控制台log级别，从低到高包含DEBUG、INFO、WARN、ERROR、CRITICAL。（上线使用INFO，本地使用DEBUG）
+#  LOG_LEVEL: INFO
+#  # log保存路径
+#  LOG_FOLDER: ./logs
+#  # log文件名称，默认为service.Log
+#  LOG_FILENAME: service.log
+#  # 日志文件记录的级别个数（1～5），从低到高计数。（上线使用4，测试使用5）
+#  BACKUPCOUNT: 4
+#
+## 网络配置
+#SERVER:
+#  IP: 0.0.0.0
+#  PORT: 10007
+#  WORKERS: 1
+#
+## LLM配置(九天)
+#LLM:
+#  TOKEN_MANAGE_URL: "http://cmzjri-aisv.zj.chinamobile.com/aiSquare/openApi/reasoning-services/yxdmx/esoptoken/tokenget"
+#  GET_TOKEN_URL: "http://maas.zj.chinamobile.com/maas-sso/oauth2/token"
+#  GET_TOKEN_CLIENT_ID: "yingPanClient"
+#  GET_TOKEN_CLIENT_SECRET: "32bGKy5EgY"
+#  MODEL_NAME: "jiutian-75b-8k-chat"
+#  JIU_TIAN_URL: "http://maas.zj.chinamobile.com/maas-operation/v1/chat/completions"
+#  JIU_TIAN_STREAM_URL: "http://maas.zj.chinamobile.com/maas-operation/v1/chat/completions/sse"
+#  JIU_TIAN_HEADERS: { 'Api-Key': 'sk-eef3e1c58b3147bd84a9c666ff6243c7',
+#                      'User-Agent': 'Apifox/1.0.0 (https://apifox.com)',
+#                      "Accept": "text/event-stream",
+#                      'Content-Type': 'application/json' }
+#
+#
+#
+#SELECT_SERVER:
+#  HUAXIANG_URL: ""
+
+
+
+
+######################################################
+##
 ##   本地测试环境配置文件
 ##
 ######################################################
@@ -47,3 +92,9 @@ STUDENT:
   START_NUMBER: 1 # 第几个学生开始执行
   END_NUMBER: 10 # 第几个学生结束执行
   PLPP_SAVE_PATH: "data/student_learning_paths.csv" # plpp保存路径
+
+# CAT相关相信
+CAT:
+  INIT_DIFFICULTY: "medium"   # 初始难度级别（下面的参数要统一：easy是1-3，medium是4-7，hard是8-10）
+  INIT_DIFFICULTY_LEVEL: 5 # 初始难度级别（上面的参数要统一：easy是1-3，medium是4-7，hard是8-10）
+  TOTAL_QUESTIONS: 20 # 题目总数

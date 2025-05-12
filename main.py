@@ -193,7 +193,7 @@ def main():
         "\n")
 
     # 准备学生信息迭代器
-    (log_params, server_params, llm_params, select_server, student) = return_config()
+    (log_params, server_params, llm_params, select_server, student, cat) = return_config()
     student_data_generator = read_data_from_csv(order=student["START_NUMBER"],
                                                 file_path='data/student_performance_large_dataset.csv')
 
@@ -217,7 +217,7 @@ def main():
         # 学生智能体进行计算机自适应测试
         # exam_score, student_level = adaptive_testing(student_agent)
         exam_score, student_level = student_data.get("Exam_Score (%)", ""), student_data.get("Final_Grade", "")  # test：先写死，之后CAT程序出来了再改
-        print(f"计算机自适应测试已完成，测试分数是{exam_score}分，bloom级别是{student_level}<UNK>", "\n")
+        print(f"计算机自适应测试已完成，测试分数是{exam_score}分，bloom级别是{student_level}", "\n")
         print(
             "*********************************************************************************************************************************************",
             "\n")

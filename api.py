@@ -10,6 +10,7 @@ from fastapi.routing import APIRoute
 from pydantic import BaseModel
 
 from src.apis.Teacher import router as Teacher_Check_router, Teacher_Check
+# from src.apis.Quiz import router as quiz_router
 from src.apis import server_response
 from utils import return_config
 from log import make_log
@@ -56,7 +57,7 @@ async def Teacher_Check_wrapper(
 
 if __name__ == "__main__":
     # 加载配置
-    (log_params, server_params, llm_params, select_server, student) = return_config()
+    (log_params, server_params, llm_params, select_server, student, cat) = return_config()
 
     logger = make_log(log_params)
     logger.info("%s", "成功加载日志配置!\n")
@@ -67,6 +68,7 @@ if __name__ == "__main__":
 
     # 添加路由
     app.include_router(Teacher_Check_router)
+    # app.include_router(quiz_router)
 
     # 打印所有注册的路由
     for route in app.routes:

@@ -18,7 +18,7 @@ def config_read():
 def return_config():
     config = config_read()
     return (config["LOG"], config["SERVER"], config["LLM"],
-            config["SELECT_SERVER"], config["STUDENT"])
+            config["SELECT_SERVER"], config["STUDENT"], config["CAT"])
 
 # 读取json文件
 def json_read(file_path: str):
