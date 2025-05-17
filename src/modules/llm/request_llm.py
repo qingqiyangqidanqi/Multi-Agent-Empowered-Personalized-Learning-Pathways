@@ -1,10 +1,13 @@
 from utils import *
-from configs.my_prompt import *
+from config.prompt import *
 from openai import OpenAI
+from openai.types.chat import ChatCompletionUserMessageParam, ChatCompletionSystemMessageParam
+import os
+
 
 def openai_chat(system_prompt, user_prompt):
-
     (log_params, server_params, llm_params, select_server, student, cat) = return_config()
+
     def anal_openai_chat(llm_output: str):
         result = None
         try:
@@ -16,14 +19,15 @@ def openai_chat(system_prompt, user_prompt):
 
     try:
         client = OpenAI(
-            api_key=llm_params["API_KEY"],
+            api_key=os.environ.get(f"""{llm_params["API_KEY_NAME"]}"""),
             base_url=llm_params["BASE_URL"],
         )
         completion = client.chat.completions.create(
             model=llm_params["MODEL_NAME"],
             messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}]
+                ChatCompletionSystemMessageParam(role="system", content=system_prompt),
+                ChatCompletionUserMessageParam(role="user", content=user_prompt),
+            ]
         )
         response = completion.model_dump_json()
         return anal_openai_chat(response)
@@ -33,5 +37,8 @@ def openai_chat(system_prompt, user_prompt):
 
 
 if __name__ == '__main__':
+    (log_params, server_params, llm_params, select_server, student, cat) = return_config()
+    print(llm_params["API_KEY_NAME"])
+    print(os.environ.get(f"""{llm_params["API_KEY_NAME"]}"""))
     result = openai_chat(teacher_prompt, input_teacher_prompt)
     print(result)

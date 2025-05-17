@@ -2,7 +2,7 @@
 import requests
 import sys
 import json
-from configs.my_prompt import *
+from config.prompt import *
 
 
 header = {"appId": "yxcptj_ydy", "requestId": "80088208820",

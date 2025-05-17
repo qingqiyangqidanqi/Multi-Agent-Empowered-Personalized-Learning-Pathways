@@ -7,18 +7,28 @@ import yaml
 import json
 import os
 
+
 def config_read():
     current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    config_path = os.path.join(current_dir, "configs", "config.yaml")
+    config_path = os.path.join(current_dir, "config", "config.yaml")
     fo = open(config_path, 'r', encoding='utf-8')
     res = yaml.load(fo, Loader=yaml.FullLoader)
-
     return res
+
+
+def service_run_name():
+    """
+    这里通过配置确定当前运行的API名称
+    :return:
+    """
+    config = config_read()
+    return config["SERVICE_NAME"]["NAME"]
 
 def return_config():
     config = config_read()
     return (config["LOG"], config["SERVER"], config["LLM"],
             config["SELECT_SERVER"], config["STUDENT"], config["CAT"])
+
 
 # 读取json文件
 def json_read(file_path: str):
@@ -26,9 +36,9 @@ def json_read(file_path: str):
         data = json.load(file)
     return data
 
+
 # 读取用
 def read_lines_to_list(file_path: str) -> List[str]:
-
     lines_list = []
     try:
         with open(file_path, "r", encoding='utf-8') as file:
@@ -56,6 +66,6 @@ def name_match(name: str, namesList: List[str]) -> bool:
     # 如果没有找到匹配的产品名称，返回 False
     return False
 
+
 def list2str(lst: List[str]) -> str:
     return ", ".join(lst)
-

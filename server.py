@@ -1,0 +1,91 @@
+from typing import (
+    Dict,
+    List
+)
+from logging import Logger
+
+import uvicorn
+from fastapi import FastAPI, Depends, Request, Header, Body
+from fastapi.routing import APIRoute
+from pydantic import BaseModel
+
+from src.apis.Teacher import router as teacher_router, teacher
+# from src.apis.Quiz import router as quiz_router,quiz
+from src.apis import server_response
+from utils import return_config, service_run_name
+from log import make_log
+import os
+
+app = FastAPI()
+
+# 确保 data 文件夹存在
+os.makedirs("data", exist_ok=True)
+
+
+# 创建依赖项
+async def get_logger():
+    return logger
+
+
+def health():
+    return server_response(data="health")
+
+
+# 1. ===========================教师智能体对话===========================
+class TeacherInput(BaseModel):
+    student_message: str
+
+
+async def teacher_wrapper(
+        request: Request,
+        log: Logger = Depends(get_logger),
+        input_data: TeacherInput = Body(...),
+        requestId: str = Header(None, alias="requestId")
+):
+    return await teacher(request, log, input_data, requestId)
+
+
+# # 2. ===========================进行计算机自适应测试======================
+# class QuizInput(BaseModel):
+#     student_message: str
+#
+#
+# async def quiz_wrapper(
+#         request: Request,
+#         log: Logger = Depends(get_logger),
+#         input_data: QuizInput = Body(...),
+#         requestId: str = Header(None, alias="requestId")
+# ):
+#     return await quiz(request, log, input_data, requestId)
+
+
+# 加载配置
+(log_params, server_params, llm_params, select_server, student, cat) = return_config()
+
+# 当前需要启动的服务区分
+service_name = service_run_name()
+
+logger = make_log(log_params)
+logger.info("%s", "成功加载日志配置!\n")
+
+# 按照配置的service_name启动对应的服务
+if service_name == "Teacher":
+    # 设置需要转发的路由
+    app.post("/health", description="健康检查")(health)
+    teacher_router.post("", description="助教")(teacher_wrapper)
+# elif service_name == "Quiz":
+#     # 设置需要转发的路由
+#     app.post("/health", description="健康检查")(health)
+#     quiz_router.post("", description="Quiz")(quiz_wrapper)
+else:
+    app.post("/health", description="健康检查")(health)
+    teacher_router.post("", description="助教")(teacher_wrapper)
+    # quiz_router.post("", description="Quiz")(quiz_wrapper)
+
+    app.include_router(teacher_router)
+    # app.include_router(quiz_router)
+
+# 打印所有注册的路由
+for route in app.routes:
+    if isinstance(route, APIRoute):
+        logger.info("Route path: {}, name: {}, description: {}".format(route.path, route.name, route.description))

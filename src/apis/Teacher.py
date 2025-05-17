@@ -1,6 +1,6 @@
 # -- coding: utf-8 --
 
-# 助教
+# 教师
 
 from typing import (
     Any
@@ -11,9 +11,8 @@ import logging
 import requests
 import time
 
-from configs.my_prompt import teacher_prompt
-# from modules.llm.vl_llm_request import openai_chat, extract_braced_substring
-from modules.llm.vl_llm_request import openai_chat
+from config.prompt import teacher_prompt
+from src.modules.llm.request_llm import openai_chat
 
 from .response import (
     params_error_response,
@@ -23,17 +22,17 @@ from .response import (
 
 router = APIRouter(
     prefix="/Teacher",
-    tags=["助教"]
+    tags=["教师agent对话接口"]
 )
 
 
-class Input(BaseModel):
+class TeacherInput(BaseModel):
     student_message: str
 
-async def Teacher_Check(
+async def teacher(
     request: Request,
     logger: logging.Logger,
-    input_data: Input = Body(...),
+    input_data: TeacherInput = Body(...),
     requestId: str = Header(None, alias="requestId")
 ) -> Any:
 

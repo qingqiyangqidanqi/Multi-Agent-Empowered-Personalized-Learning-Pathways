@@ -3,11 +3,11 @@ from pydantic import BaseModel
 from typing import Dict, Any, Optional, List
 import uuid
 import logging
-from modules.cat.data_structure_quiz import DataStructureQuiz
+from src.modules.cat.data_structure_quiz import DataStructureQuiz
 
 router = APIRouter(
     prefix="/quiz",
-    tags=["quiz"],
+    tags=["计算机自适应测试"],
     responses={404: {"description": "Not found"}}
 )
 
