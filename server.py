@@ -11,7 +11,7 @@ from pydantic import BaseModel
 
 from src.apis.teacher import router as teacher_router, teacher
 from src.apis.student import router as student_router, student
-# from src.apis.Quiz import router as quiz_router,quiz
+from src.apis.quiz import router as quiz_router,quiz
 from src.apis import server_response
 from utils import return_config, service_run_name
 from log import make_log
@@ -63,18 +63,19 @@ async def teacher_wrapper(
     return await teacher(request, log, input_data, requestId)
 
 
-# # 3. ===========================计算机自适应测试==========================
-# class QuizInput(BaseModel):
-#     student_message: str
-#
-#
-# async def quiz_wrapper(
-#         request: Request,
-#         log: Logger = Depends(get_logger),
-#         input_data: QuizInput = Body(...),
-#         requestId: str = Header(None, alias="requestId")
-# ):
-#     return await quiz(request, log, input_data, requestId)
+# 3. ===========================计算机自适应测试==========================
+class QuizInput(BaseModel):
+    student_id: str
+    # talk_message: List[Dict[str, str]]
+
+
+async def quiz_wrapper(
+        request: Request,
+        log: Logger = Depends(get_logger),
+        input_data: QuizInput = Body(...),
+        requestId: str = Header(None, alias="requestId")
+):
+    return await quiz(request, log, input_data, requestId)
 
 
 # 加载配置
@@ -95,15 +96,15 @@ elif service_name == "teacher":
     # 设置需要转发的路由
     app.post("/health", description="健康检查")(health)
     teacher_router.post("", description="教师agent")(teacher_wrapper)
-# elif service_name == "Quiz":
-#     # 设置需要转发的路由
-#     app.post("/health", description="健康检查")(health)
-#     quiz_router.post("", description="Quiz")(quiz_wrapper)
+elif service_name == "quiz":
+    # 设置需要转发的路由
+    app.post("/health", description="健康检查")(health)
+    quiz_router.post("", description="计算机自适应测试")(quiz_wrapper)
 else:
     app.post("/health", description="健康检查")(health)
     student_router.post("", description="学生智能体进行交流")(student_wrapper)
     teacher_router.post("", description="教师智能体进行个性化学习路径推荐")(teacher_wrapper)
-    # quiz_router.post("", description="Quiz")(quiz_wrapper)
+    quiz_router.post("", description="Quiz")(quiz_wrapper)
 
     app.include_router(student_router)
     app.include_router(teacher_router)

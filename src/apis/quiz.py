@@ -1,4 +1,17 @@
-from fastapi import APIRouter, HTTPException, Depends, Request, Header
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+"""=================================================
+@PROJECT_NAME: Multi-Agent-Empowered-Personalized-Learning-Pathways
+@File    : quiz.py
+@Author  : jiesheng
+@Date    : 2025/5/18 15:31
+@Desc    : 
+           包括三个部分：1. 用户发送请求获得问题。Question 2. 用户回答问题，服务器判断对错返回结果。Answer 3. 用户答完所有题目，服务器返回最终结果。Result
+@Modify History:
+         
+@Copyright：Copyright(c) 2025-2028. All Rights Reserved
+=================================================="""
+from fastapi import APIRouter, HTTPException, Request, Header, Body
 from pydantic import BaseModel
 from typing import Dict, Any, Optional, List
 import uuid
@@ -15,12 +28,12 @@ router = APIRouter(
 quiz_sessions = {}
 
 
-class AnswerRequest(BaseModel):
+class QuestionRequest(BaseModel):
     answer: str
     session_id: str
 
 
-class QuizResponse(BaseModel):
+class AnswerResponse(BaseModel):
     question: str
     options: List[str]
     question_number: int
@@ -40,9 +53,10 @@ class ResultResponse(BaseModel):
 
 
 @router.post("/start")
-async def start_quiz(
+async def question(
         request: Request,
         logger: logging.Logger,
+        input_data: QuestionRequest = Body(...),
         requestId: str = Header(None, alias="requestId")
 ):
     """开始一个新的测验会话"""

@@ -36,9 +36,9 @@ def openai_chat(system_prompt, user_prompt: str = ""):
         return None
 
 
-if __name__ == '__main__':
-    (log_params, server_params, llm_params, select_server, student, cat) = return_config()
-    print(llm_params["API_KEY_NAME"])
-    print(os.environ.get(f"""{llm_params["API_KEY_NAME"]}"""))
-    result = openai_chat(teacher_prompt, input_teacher_prompt)
-    print(result)
+# if __name__ == '__main__':
+#     (log_params, server_params, llm_params, select_server, student, cat) = return_config()
+#     print(llm_params["API_KEY_NAME"])
+#     print(os.environ.get(f"""{llm_params["API_KEY_NAME"]}"""))
+#     result = openai_chat(teacher_prompt, input_teacher_prompt)
+#     print(result)

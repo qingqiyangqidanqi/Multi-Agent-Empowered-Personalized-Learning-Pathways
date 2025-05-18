@@ -3,10 +3,7 @@ import requests
 import sys
 import json
 
-
-
-
-
+from prompt_toolkit import output
 
 header = {"appId": "yxcptj_ydy", "requestId": "80088208820",
           "requestTime": "2021-03-16 23:15:00"}
@@ -64,6 +61,11 @@ def check_health():
 
 
 if __name__ == '__main__':
-    # print(check_health())
-    for item in [1,5]:
-        print(item)
+    # # print(check_health())
+    # for item in [1,5]:
+    #     print(item)
+    coentents:list[dict[str,str]]
+    # content:dict[str,str] = {input:"请给我第一个问题",output:"具体的一个question"}
+    # content:dict[str,str] = {input:"我回答的结果是：A",output:"True/False"}
+    content:dict[str,str] = {input:"整个quiz过程结果，请给我最终结果",output:"两个分数"}
+
