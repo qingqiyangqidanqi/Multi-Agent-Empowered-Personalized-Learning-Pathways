@@ -8,7 +8,7 @@ from config.prompt import *
 header = {"appId": "yxcptj_ydy", "requestId": "80088208820",
           "requestTime": "2021-03-16 23:15:00"}
 
-url = 'http://localhost:10007/Teacher'#测试
+url = 'http://localhost:10007/student'#测试
 
 
 
@@ -43,6 +43,6 @@ def check_health(student_id):
 # 示例用法
 if __name__ == "__main__":
 
-    student_id = "S00002"
+    student_id = "S00003"
     print(check_health(student_id))
 

@@ -9,7 +9,8 @@ from fastapi import FastAPI, Depends, Request, Header, Body
 from fastapi.routing import APIRoute
 from pydantic import BaseModel
 
-from src.apis.Teacher import router as teacher_router, teacher
+from src.apis.teacher import router as teacher_router, teacher
+from src.apis.student import router as student_router, student
 # from src.apis.Quiz import router as quiz_router,quiz
 from src.apis import server_response
 from utils import return_config, service_run_name
@@ -31,9 +32,26 @@ def health():
     return server_response(data="health")
 
 
-# 1. ===========================教师智能体对话===========================
+# 1. ===========================学生智能体对话===========================
+
+class StudentInput(BaseModel):
+    student_id: str
+    # talk_message: list[dict[str, str]]
+
+
+async def student_wrapper(
+        request: Request,
+        log: Logger = Depends(get_logger),
+        input_data: StudentInput = Body(...),
+        requestId: str = Header(None, alias="requestId")
+):
+    return await student(request, log, input_data, requestId)
+
+
+# 2. ===========================教师智能体个性化学习路径推荐==================
+
 class TeacherInput(BaseModel):
-    student_message: str
+    student_id: str
 
 
 async def teacher_wrapper(
@@ -45,7 +63,7 @@ async def teacher_wrapper(
     return await teacher(request, log, input_data, requestId)
 
 
-# # 2. ===========================进行计算机自适应测试======================
+# # 3. ===========================计算机自适应测试==========================
 # class QuizInput(BaseModel):
 #     student_message: str
 #
@@ -60,7 +78,7 @@ async def teacher_wrapper(
 
 
 # 加载配置
-(log_params, server_params, llm_params, select_server, student, cat) = return_config()
+(log_params, server_params, llm_params, select_server, student_1, cat) = return_config()
 
 # 当前需要启动的服务区分
 service_name = service_run_name()
@@ -69,19 +87,25 @@ logger = make_log(log_params)
 logger.info("%s", "成功加载日志配置!\n")
 
 # 按照配置的service_name启动对应的服务
-if service_name == "Teacher":
+if service_name == "student":
     # 设置需要转发的路由
     app.post("/health", description="健康检查")(health)
-    teacher_router.post("", description="助教")(teacher_wrapper)
+    student_router.post("", description="学生智能体进行交流")(student_wrapper)
+elif service_name == "teacher":
+    # 设置需要转发的路由
+    app.post("/health", description="健康检查")(health)
+    teacher_router.post("", description="教师agent")(teacher_wrapper)
 # elif service_name == "Quiz":
 #     # 设置需要转发的路由
 #     app.post("/health", description="健康检查")(health)
 #     quiz_router.post("", description="Quiz")(quiz_wrapper)
 else:
     app.post("/health", description="健康检查")(health)
-    teacher_router.post("", description="助教")(teacher_wrapper)
+    student_router.post("", description="学生智能体进行交流")(student_wrapper)
+    teacher_router.post("", description="教师智能体进行个性化学习路径推荐")(teacher_wrapper)
     # quiz_router.post("", description="Quiz")(quiz_wrapper)
 
+    app.include_router(student_router)
     app.include_router(teacher_router)
     # app.include_router(quiz_router)
 

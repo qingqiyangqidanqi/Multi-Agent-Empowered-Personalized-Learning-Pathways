@@ -5,7 +5,7 @@ from openai.types.chat import ChatCompletionUserMessageParam, ChatCompletionSyst
 import os
 
 
-def openai_chat(system_prompt, user_prompt):
+def openai_chat(system_prompt, user_prompt: str = ""):
     (log_params, server_params, llm_params, select_server, student, cat) = return_config()
 
     def anal_openai_chat(llm_output: str):
