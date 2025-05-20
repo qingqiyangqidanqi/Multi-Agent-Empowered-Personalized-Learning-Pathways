@@ -16,159 +16,98 @@ from pydantic import BaseModel
 from typing import Dict, Any, Optional, List
 import uuid
 import logging
-from src.modules.cat.data_structure_quiz import DataStructureQuiz
 
-router = APIRouter(
-    prefix="/quiz",
-    tags=["计算机自适应测试"],
+from src.modules.quiz.quiz import get_question, judeg_correct, get_result
+
+question_router = APIRouter(
+    prefix="/quiz/question",
+    tags=["计算机自适应测试-返回问题"],
     responses={404: {"description": "Not found"}}
 )
 
-# 存储用户会话
-quiz_sessions = {}
+answer_router = APIRouter(
+    prefix="/quiz/answer",
+    tags=["计算机自适应测试-返回结果"],
+    responses={404: {"description": "Not found"}}
+)
 
 
+# ===========================================1. 用户发送请求获得问题。===========================================
 class QuestionRequest(BaseModel):
-    answer: str
-    session_id: str
+    student_id: str
+    session_id: str = None
 
 
-class AnswerResponse(BaseModel):
-    question: str
-    options: List[str]
-    question_number: int
-    total_questions: int
-    difficulty_level: int
-    session_id: str
-
-
-class ResultResponse(BaseModel):
-    is_correct: bool
-    correct_answer: Optional[str] = None
-    message: str
-    next_question: Optional[QuizResponse] = None
-    is_completed: bool = False
-    score: Optional[int] = None
-    bloom_level: Optional[str] = None
-
-
-@router.post("/start")
 async def question(
         request: Request,
         logger: logging.Logger,
         input_data: QuestionRequest = Body(...),
         requestId: str = Header(None, alias="requestId")
 ):
-    """开始一个新的测验会话"""
     try:
-        # 记录请求信息
+        # 请求入参日志留存
         headers = request.headers
-        logger.info("Request ID: %s, 开始新测验会话, 请求头信息:\n%s", requestId or "unknown", headers)
+        logger.info("Request ID: {}, 请求头信息如下：\n{}\n".format(requestId, headers))
+        logger.info("Request ID: {}, 请求Body信息：\n{}\n".format(requestId, input_data))
 
-        # 创建测验对象
-        quiz = DataStructureQuiz()
-        session_id = str(uuid.uuid4())
-
-        # 获取第一个问题
-        question = quiz.get_next_question()
-
+        # 如果session_id不存在，则生成一个新的会话并返回第一个问题，否则返回下一个问题
+        session_id = input_data.session_id
+        student_id = input_data.student_id
+        # 获取问题
+        question_num, question = get_question(session_id, student_id)
         if question is None:
-            logger.error("Request ID: %s, 无法获取题目，请检查题库", requestId or "unknown")
+            logger.error("Request ID: %s, 无法获取题目，请检查问题", requestId or "unknown")
             raise HTTPException(status_code=500, detail="无法获取题目，请检查题库")
-
-        quiz_sessions[session_id] = {
-            "quiz": quiz,
-            "current_question": question,
-            "question_num": 1
-        }
-
-        response = QuizResponse(
-            question=question["question"],
-            options=question["options"],
-            question_number=1,
-            total_questions=quiz.total_questions,
-            difficulty_level=quiz.current_difficulty_level,
-            session_id=session_id
-        )
-
-        logger.info("Request ID: %s, 测验会话已创建, session_id: %s, 第一题: %s",
-                    requestId or "unknown", session_id, question["question"])
-
-        return response
+        if question_num == 1:
+            logger.info(f"quiz会话已创建, session_id: {session_id}, 第{question_num}题: {question}")
+        else:
+            logger.info(f"quiz会话在继续, session_id: {session_id}, 第{question_num}题: {question}")
+        return tuple(session_id, question_num, question)
     except Exception as e:
-        logger.error("Request ID: %s, 创建测验会话失败: %s", requestId or "unknown", str(e))
+        logger.error(f"session_id: {session_id}, 会话失败: {str(e)}")
         import traceback
         logger.error("详细错误: %s", traceback.format_exc())
-        raise HTTPException(status_code=500, detail=f"创建测验会话失败: {str(e)}")
 
 
-@router.post("/answer", response_model=ResultResponse)
-async def submit_answer(
+# =========================2. 用户回答问题，服务器判断对错返回结果;用户答完所有题目，服务器返回最终结果。===================================
+
+class AnswerRequest(BaseModel):
+    session_id: str
+    student_answer: str
+
+
+async def answer(
         request: Request,
-        req_body: AnswerRequest,
         logger: logging.Logger,
+        input_data: AnswerRequest = Body(...),
         requestId: str = Header(None, alias="requestId")
 ):
     """提交答案并获取下一个问题"""
     try:
         # 记录请求信息
         logger.info("Request ID: %s, 提交答案请求, session_id: %s, answer: %s",
-                    requestId or "unknown", req_body.session_id, req_body.answer)
+                    requestId or "unknown", input_data.session_id, input_data.answer)
 
-        session_id = req_body.session_id
-        if session_id not in quiz_sessions:
+        session_id = input_data.session_id
+        student_answer = input_data.student_answer
+
+        # 检查会话是否存在talks_quiz中
+        if session_id:
             logger.warning("Request ID: %s, 会话不存在: %s", requestId or "unknown", session_id)
             raise HTTPException(status_code=404, detail="会话不存在，请重新开始测验")
 
-        session = quiz_sessions[session_id]
-        quiz = session["quiz"]
-        current_question = session["current_question"]
-
         # 验证和处理答案
-        answer = req_body.answer.strip().upper()
-        is_correct = quiz.answer_question(answer, current_question)
-        logger.info("Request ID: %s, 回答%s, 问题: %s",
-                    requestId or "unknown", "正确" if is_correct else "错误", current_question["question"])
-
-        # 获取下一个问题
-        next_question = quiz.get_next_question()
-        session["current_question"] = next_question
-        session["question_num"] += 1
-
-        # 检查测验是否完成
-        is_completed = next_question is None
-
-        result = ResultResponse(
-            is_correct=is_correct,
-            correct_answer=current_question["correct_answer"],
-            message="回答正确！" if is_correct else "回答错误。",
-            is_completed=is_completed
-        )
-
-        if is_completed:
-            # 测验结束，返回最终结果
-            score, bloom_level = quiz.get_final_result()
-            result.score = score
-            result.bloom_level = bloom_level
-            logger.info("Request ID: %s, 测验完成, session_id: %s, 得分: %s, Bloom等级: %s",
-                        requestId or "unknown", session_id, score, bloom_level)
-            # 清理会话
-            quiz_sessions.pop(session_id, None)
+        is_correct, is_end = judeg_correct(session_id, student_answer)
+        if not is_end:
+            # 如果不是最后一道题
+            logger.info(f"session_id: {session_id}, 回答是{is_correct}")
+            return tuple(session_id, is_correct)
         else:
-            # 返回下一个问题
-            result.next_question = QuizResponse(
-                question=next_question["question"],
-                options=next_question["options"],
-                question_number=session["question_num"],
-                total_questions=quiz.total_questions,
-                difficulty_level=quiz.current_difficulty_level,
-                session_id=session_id
-            )
-            logger.info("Request ID: %s, 提供下一题, 问题编号: %s, 难度: %s",
-                        requestId or "unknown", session["question_num"], quiz.current_difficulty_level)
-
-        return result
-
+            # 如果是最后一道题
+            final_level, final_bloom = get_result(session_id)
+            logger.info(f"session_id: {session_id}, 回答是{is_correct}")
+            logger.info(f"session_id: {session_id}, 测试结束, 最终水平: {final_level},bloom等级: {final_bloom}")
+            return tuple(session_id, is_correct, final_level, final_bloom)
     except HTTPException:
         # 直接重新抛出HTTP异常
         raise

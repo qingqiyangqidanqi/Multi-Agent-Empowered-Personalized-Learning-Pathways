@@ -1,31 +1,26 @@
-
 import requests
 import sys
 import json
 from config.prompt import *
 
-
 header = {"appId": "yxcptj_ydy", "requestId": "80088208820",
           "requestTime": "2021-03-16 23:15:00"}
 
-url = 'http://localhost:10007/student'#测试
+url = 'http://localhost:10007/student'  # 测试
 
 
-
-        
-def check_health(student_id):
-
+def check_health(student_id: str, talk: str = ""):
     # 不加统一接口
-    http_body = {"student_id" : student_id}
+    http_body = {"student_id": student_id, "talk": talk}
 
     try:
         exception = 0
         response = requests.post(url, json=http_body, headers=header)
         print(response.text)
 
-        if response.status_code==200:
+        if response.status_code == 200:
 
-            res='11'
+            res = '11'
 
 
         else:
@@ -42,7 +37,7 @@ def check_health(student_id):
 
 # 示例用法
 if __name__ == "__main__":
-
-    student_id = "S00003"
-    print(check_health(student_id))
-
+    # student_id = "S00003"
+    student_id = "S00001"
+    talk = "你还爱我吗"
+    print(check_health(student_id,talk))

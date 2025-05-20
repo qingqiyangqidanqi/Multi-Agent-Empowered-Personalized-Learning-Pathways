@@ -9,9 +9,9 @@ from fastapi import FastAPI, Depends, Request, Header, Body
 from fastapi.routing import APIRoute
 from pydantic import BaseModel
 
-from src.apis.teacher import router as teacher_router, teacher
-from src.apis.student import router as student_router, student
-from src.apis.quiz import router as quiz_router,quiz
+from src.apis.teacher import TeacherInput, router as teacher_router, teacher
+from src.apis.student import StudentInput, router as student_router, student
+from src.apis.quiz import QuestionRequest, AnswerRequest, answer_router, question_router, question, answer
 from src.apis import server_response
 from utils import return_config, service_run_name
 from log import make_log
@@ -33,12 +33,6 @@ def health():
 
 
 # 1. ===========================学生智能体对话===========================
-
-class StudentInput(BaseModel):
-    student_id: str
-    # talk_message: list[dict[str, str]]
-
-
 async def student_wrapper(
         request: Request,
         log: Logger = Depends(get_logger),
@@ -49,11 +43,6 @@ async def student_wrapper(
 
 
 # 2. ===========================教师智能体个性化学习路径推荐==================
-
-class TeacherInput(BaseModel):
-    student_id: str
-
-
 async def teacher_wrapper(
         request: Request,
         log: Logger = Depends(get_logger),
@@ -64,18 +53,22 @@ async def teacher_wrapper(
 
 
 # 3. ===========================计算机自适应测试==========================
-class QuizInput(BaseModel):
-    student_id: str
-    # talk_message: List[Dict[str, str]]
-
-
-async def quiz_wrapper(
+async def question_wrapper(
         request: Request,
         log: Logger = Depends(get_logger),
-        input_data: QuizInput = Body(...),
+        input_data: QuestionRequest = Body(...),
         requestId: str = Header(None, alias="requestId")
 ):
-    return await quiz(request, log, input_data, requestId)
+    return await question(request, log, input_data, requestId)
+
+
+async def answer_wrapper(
+        request: Request,
+        log: Logger = Depends(get_logger),
+        input_data: AnswerRequest = Body(...),
+        requestId: str = Header(None, alias="requestId")
+):
+    return await answer(request, log, input_data, requestId)
 
 
 # 加载配置
@@ -92,23 +85,33 @@ if service_name == "student":
     # 设置需要转发的路由
     app.post("/health", description="健康检查")(health)
     student_router.post("", description="学生智能体进行交流")(student_wrapper)
+    app.include_router(student_router)
+
 elif service_name == "teacher":
     # 设置需要转发的路由
     app.post("/health", description="健康检查")(health)
     teacher_router.post("", description="教师agent")(teacher_wrapper)
+    app.include_router(teacher_router)
+
 elif service_name == "quiz":
     # 设置需要转发的路由
     app.post("/health", description="健康检查")(health)
-    quiz_router.post("", description="计算机自适应测试")(quiz_wrapper)
+    question_router.post("", description="计算机自适应测试-返回问题")(question_wrapper)
+    answer_router.post("", description="计算机自适应测试-返回结果")(answer_wrapper)
+    app.include_router(question_router)
+    app.include_router(answer_router)
+
 else:
     app.post("/health", description="健康检查")(health)
     student_router.post("", description="学生智能体进行交流")(student_wrapper)
     teacher_router.post("", description="教师智能体进行个性化学习路径推荐")(teacher_wrapper)
-    quiz_router.post("", description="Quiz")(quiz_wrapper)
+    question_router.post("", description="计算机自适应测试-问题")(question_wrapper)
+    answer_router.post("", description="计算机自适应测试-结果")(answer_wrapper)
 
     app.include_router(student_router)
     app.include_router(teacher_router)
-    # app.include_router(quiz_router)
+    app.include_router(question_router)
+    app.include_router(answer_router)
 
 # 打印所有注册的路由
 for route in app.routes:

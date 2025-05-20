@@ -46,7 +46,7 @@ class StudentPrompt(PromptTemplateBase):
         """
         通过学号获取学生数据
         """
-        student_data = read_csv_row(id=self.student_id,file_path='./data/student_performance_large_dataset.csv')
+        student_data = read_csv_student_data(id=self.student_id,file_path='./data/student_performance_large_dataset.csv')
         return student_data
 
     def create_prompt(self)-> str:

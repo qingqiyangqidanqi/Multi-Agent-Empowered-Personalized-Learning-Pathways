@@ -60,12 +60,12 @@ def check_health():
     return exception
 
 
-if __name__ == '__main__':
-    # # print(check_health())
-    # for item in [1,5]:
-    #     print(item)
-    coentents:list[dict[str,str]]
-    # content:dict[str,str] = {input:"请给我第一个问题",output:"具体的一个question"}
-    # content:dict[str,str] = {input:"我回答的结果是：A",output:"True/False"}
-    content:dict[str,str] = {input:"整个quiz过程结果，请给我最终结果",output:"两个分数"}
-
+# if __name__ == '__main__':
+#     # # print(check_health())
+#     # # for item in [1,5]:
+#     # #     print(item)
+#     # coentents:list[dict[str,str]]
+#     # # content:dict[str,str] = {input:"请给我第一个问题",output:"具体的一个question"}
+#     # # content:dict[str,str] = {input:"我回答的结果是：A",output:"True/False"}
+#     # content:dict[str,str] = {input:"整个quiz过程结果，请给我最终结果",output:"两个分数"}
+# # # content:dict[str,str] = {input:"我回答的结果是：A",output:"True/False"}
