@@ -72,7 +72,7 @@ async def answer_wrapper(
 
 
 # 加载配置
-(log_params, server_params, llm_params, select_server, student_1, cat) = return_config()
+(log_params, server_params, llm_params, select_server, student_1, quiz) = return_config()
 
 # 当前需要启动的服务区分
 service_name = service_run_name()

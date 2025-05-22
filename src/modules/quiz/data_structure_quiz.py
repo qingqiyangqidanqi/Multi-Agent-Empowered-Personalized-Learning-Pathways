@@ -13,16 +13,16 @@ class DataStructureQuiz:
             excel_path: Excel文件路径
         """
 
-        (log_params, server_params, llm_params, select_server, student, cat) = return_config()
+        (log_params, server_params, llm_params, select_server, student, quiz) = return_config()
 
         self.excel_path = excel_path
         self.questions = self._load_questions()
-        self.current_difficulty = cat["INIT_DIFFICULTY"]  # 初始难度为中等
+        self.current_difficulty = quiz["INIT_DIFFICULTY"]  # 初始难度为中等
         self.score = 0
-        self.total_questions = cat["TOTAL_QUESTIONS"]
+        self.total_questions = quiz["TOTAL_QUESTIONS"]
         self.answered_questions = []
         self.current_question_index = 0
-        self.current_difficulty_level = cat["INIT_DIFFICULTY_LEVEL"]  # 初始难度级别为5
+        self.current_difficulty_level = quiz["INIT_DIFFICULTY_LEVEL"]  # 初始难度级别为5
 
     def _load_questions(self) -> Dict[str, List[Dict[str, Any]]]:
         """

@@ -14,10 +14,10 @@
 from fastapi import APIRouter, HTTPException, Request, Header, Body
 from pydantic import BaseModel
 from typing import Dict, Any, Optional, List
-import uuid
 import logging
 
 from src.modules.quiz.quiz import get_question, judeg_correct, get_result
+from utils import *
 
 question_router = APIRouter(
     prefix="/quiz/question",
@@ -50,19 +50,21 @@ async def question(
         logger.info("Request ID: {}, 请求头信息如下：\n{}\n".format(requestId, headers))
         logger.info("Request ID: {}, 请求Body信息：\n{}\n".format(requestId, input_data))
 
-        # 如果session_id不存在，则生成一个新的会话并返回第一个问题，否则返回下一个问题
+        # 如果session_id不存在，则生成一个新会话并返回第一个问题，否则返回下一个问题
         session_id = input_data.session_id
         student_id = input_data.student_id
+        if session_id is None:
+            session_id = student_id + "_01"
+
         # 获取问题
-        question_num, question = get_question(session_id, student_id)
-        if question is None:
-            logger.error("Request ID: %s, 无法获取题目，请检查问题", requestId or "unknown")
-            raise HTTPException(status_code=500, detail="无法获取题目，请检查题库")
-        if question_num == 1:
-            logger.info(f"quiz会话已创建, session_id: {session_id}, 第{question_num}题: {question}")
+        question_num, next_question,next_question_full = get_question(session_id)  # 之前做过的题目数量，下一道题
+        if next_question is not None:
+            logger.info(f"quiz会话在继续, session_id: {session_id}, 第{question_num}题: {next_question}")
+            # 将题目记录在talks_quiz中
+            append_messages_to_talks_quiz(session_id,student_id, question_num, next_question_full)
         else:
-            logger.info(f"quiz会话在继续, session_id: {session_id}, 第{question_num}题: {question}")
-        return tuple(session_id, question_num, question)
+            logger.error("Request ID: %s, 无法获取题目，请检查问题", requestId or "unknown")
+        return (session_id, question_num, next_question)
     except Exception as e:
         logger.error(f"session_id: {session_id}, 会话失败: {str(e)}")
         import traceback

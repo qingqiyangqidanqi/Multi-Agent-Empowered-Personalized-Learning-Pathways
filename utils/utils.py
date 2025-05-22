@@ -6,6 +6,7 @@ from typing import (
 import yaml
 import json
 import os
+import re
 
 
 def config_read():
@@ -24,10 +25,11 @@ def service_run_name():
     config = config_read()
     return config["SERVICE_NAME"]["NAME"]
 
+
 def return_config():
     config = config_read()
     return (config["LOG"], config["SERVER"], config["LLM"],
-            config["SELECT_SERVER"], config["STUDENT"], config["CAT"])
+            config["SELECT_SERVER"], config["STUDENT"], config["QUIZ"])
 
 
 # 读取json文件
@@ -67,5 +69,24 @@ def name_match(name: str, namesList: List[str]) -> bool:
     return False
 
 
+def extract_content(text: str) -> str:
+    """
+    匹配三个反引号之间的内容，忽略可能存在的语言标识
+    :param text: 输入文本
+    :return: 提取的内容
+    """
+    pattern = r"```(?:\w+)?\s*(.*?)\s*```"
+    match = re.search(pattern, text, re.DOTALL)
+    if match:
+        return match.group(1)
+    return text  # 如果没有匹配到，返回原文本
+
+
 def list2str(lst: List[str]) -> str:
     return ", ".join(lst)
+
+
+if __name__ == '__main__':
+    result = " ```json\n你好\n```"
+    clean_result = extract_content(result)
+    print(clean_result)  # 输出: 你好

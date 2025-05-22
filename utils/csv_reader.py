@@ -55,7 +55,7 @@ Optional[
 def read_csv_quiz_data(session_id: str = "S00001_01", file_path: str = './data/talks_quiz.csv') -> Optional[
     Dict[str, Any]]:
     """
-    通过id读取计算机自适应测试会话CSV文件的指定行，如果不存在则返回False
+    通过id读取计算机自适应测试会话CSV文件的指定行，如果不存在文件则返回None,如果不存在指定行则返回一个新行
     Args:
         session_id: 计算机自适应测试会话id
         file_path: CSV文件路径
@@ -80,14 +80,8 @@ def read_csv_quiz_data(session_id: str = "S00001_01", file_path: str = './data/t
                 if row.get("Session_ID") == session_id:
                     return dict(row)
 
-            # 如果没找到，创建新行
-            new_row = {
-                "Session_ID": session_id,
-                "Student_ID": student_id,
-                "QA": {},
-                "Result": {}
-            }
-            return new_row
+            # 如果没找到，则返回None
+            return None
 
     except Exception as e:
         print(f"读取CSV文件时出错: {e}")
@@ -128,9 +122,32 @@ if __name__ == '__main__':
     # csv_file_path = './data/talks_quiz.csv'
     # student_data = read_csv_student_data(id="S00001", file_path=csv_file_path)
     # print(student_data)
+
     # is_exist = is_student_exists_in_csv("S00002", file_path='./data/talks_student.csv')
     # print(is_exist)
-    system_promt = read_csv_student_data(id="S00001", file_path='./data/talks_student.csv')
-    print(system_promt)
-    result = system_promt.get('contents')
-    print(result)
+
+    # system_promt = read_csv_student_data(id="S00001", file_path='./data/talks_student.csv')
+    # print(system_promt)
+    # result = system_promt.get('contents')
+    # print(result)
+
+    csv_file_path = './data/talks_quiz.csv'
+    student_data = read_csv_quiz_data(session_id="S00001_01", file_path=csv_file_path)
+    print(student_data)
+    student_QA = student_data['QA']
+    print(student_QA)
+    student_question_num = student_data['question_num']
+    print(student_question_num)
+    student_QA_list = eval(student_QA)
+    print(student_QA_list)
+    print(len(student_QA_list))
+
+    # for item in student_QA_list:
+    #     print(item)
+    #     print(item['order'])
+    #     print(item['knowledge_point_type'])
+    #     print(item['question'])
+    #     print(item['answer'])
+    #     print(item['user_answer'])
+    #     print(item['is_True'])
+

@@ -193,7 +193,7 @@ def main():
         "\n")
 
     # 准备学生信息迭代器
-    (log_params, server_params, llm_params, select_server, student, cat) = return_config()
+    (log_params, server_params, llm_params, select_server, student, quiz) = return_config()
     student_data_generator = read_data_from_csv(order=student["START_NUMBER"],
                                                 file_path='../data/student_performance_large_dataset.csv')
 

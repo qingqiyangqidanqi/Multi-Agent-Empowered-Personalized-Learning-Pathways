@@ -12,6 +12,7 @@ import requests
 
 from src.modules.prompt import PromptTemplateFactory
 from src.modules.llm.request_llm import openai_chat
+from utils import *
 
 from .response import (
     params_error_response,
@@ -48,10 +49,12 @@ async def teacher(
         # ==============================================================================================================================================
         # 组装提示词
 
+        message = []
         try:
             teacher_prompt = PromptTemplateFactory.create_template(template_name="teacher_prompt",
                                                                    student_id=input_data.student_id)
             prompt = teacher_prompt.create_prompt()
+            message.append({"role": "system", "content": prompt})
             logger.info("Request ID: {}, 组装提示词：\n提示词：{}".format(requestId, prompt))
         except Exception as e:
             logger.error("Request ID: {}, 提示词组装失败！".format(requestId))
@@ -60,11 +63,12 @@ async def teacher(
         # ==============================================================================================================================================
         # 请求大模型
         try:
-            response_data = openai_chat(prompt)
+            response_data = openai_chat(message=message)
             logger.info(f"大模型输出中...\n {str(response_data)}")
 
             try:
                 result = response_data
+                result = extract_content(text = result)
                 return result
             except Exception as e:
                 print("解析失败:", e)

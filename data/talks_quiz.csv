@@ -1,2 +1,32 @@
 Session_ID,Student_ID,QA,Result
+S00001_01,S00001,"[{
+""order"": 1,
+""knowledge_point_type"": ""数据结构基本概念和术语"",
+""question"": ""研究数据结构就是研究 ()。"",
+""option_A"": ""数据的逻辑结构"",
+""option_B"": ""数据的存储结构"",
+""option_C"": ""数据的逻辑结构和存储结构"",
+""option_D"": ""数据的逻辑结构、存储结构及其基本操作"",
+""answer"": ""D"",
+""difficulty"": 3,
+""bloom_level"": ""a"",
+""user_answer"": ""A"",
+""is_true"": False
+},
+{
+""order"": 2,
+""knowledge_point_type"": ""算法效率的度量"",
+""question"": ""算法分析的两个主要方面是 ()。"",
+""option_A"": ""空间复杂度和时间复杂度"",
+""option_B"": ""正确性和简单性"",
+""option_C"": ""可读性和文档性"",
+""option_D"": ""数据复杂性和程序复杂性"",
+""answer"": ""A"",
+""difficulty"": 3,
+""bloom_level"": ""a"",
+""user_answer"": ""A"",
+""is_true"": True
+}]","{""score"": 85,
+""bloom_level"": ""c"",}
+"
 S00001_01,S00001,"{1:""你能告诉我你最喜欢的食物吗？"", 2: ""我最喜欢的食物是披萨。""}","{1:85, 2: 90}"

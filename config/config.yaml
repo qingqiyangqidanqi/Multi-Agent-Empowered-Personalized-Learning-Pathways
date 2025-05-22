@@ -23,7 +23,7 @@ SERVER:
 
 # 启动哪个子服务（student: 和智能体学生进行交流; teacher: 助教进行个性化路径规划; quiz: 进行计算机自适应测试； full_run：同时启动所有服务 ）
 SERVICE_NAME:
-  NAME: student  # 支持配置的字段有 student/ teacher / quiz /full_run
+  NAME: quiz  # 支持配置的字段有 student/ teacher / quiz /full_run
 
 # LLM配置
 LLM:
@@ -52,8 +52,7 @@ STUDENT:
   END_NUMBER: 1 # 第几个学生结束执行
   PLPP_SAVE_PATH: "data/student_learning_paths.csv" # plpp保存路径
 
-# CAT相关相信
-CAT:
-  INIT_DIFFICULTY: "medium"   # 初始难度级别（下面的参数要统一：easy是1-3，medium是4-7，hard是8-10）
-  INIT_DIFFICULTY_LEVEL: 5 # 初始难度级别（上面的参数要统一：easy是1-3，medium是4-7，hard是8-10）
-  TOTAL_QUESTIONS: 20 # 题目总数
+# 计算机自适应测试相关信息
+QUIZ:
+  DIFFICULT: 3 # 初始难度级别（从低到高依次是 1 - 6 级别）
+  TOTAL_QUESTION_NUMBER: 20 # 题目总数
