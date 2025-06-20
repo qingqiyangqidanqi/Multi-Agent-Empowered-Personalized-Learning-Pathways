@@ -5,7 +5,7 @@ from utils import return_config
 
 
 class DataStructureQuiz:
-    def __init__(self, excel_path: str = "../../data/data_structure_questions.xlsx"):
+    def __init__(self, excel_path: str = "./data/data_structure_questions.xlsx"):
         """
         初始化数据结构测验类
         
@@ -17,12 +17,12 @@ class DataStructureQuiz:
 
         self.excel_path = excel_path
         self.questions = self._load_questions()
-        self.current_difficulty = quiz["INIT_DIFFICULTY"]  # 初始难度为中等
+        self.current_difficulty = 'medium'  # 初始难度为中等
         self.score = 0
-        self.total_questions = quiz["TOTAL_QUESTIONS"]
+        self.total_questions = 10
         self.answered_questions = []
         self.current_question_index = 0
-        self.current_difficulty_level = quiz["INIT_DIFFICULTY_LEVEL"]  # 初始难度级别为5
+        self.current_difficulty_level = 5  # 初始难度级别为5
 
     def _load_questions(self) -> Dict[str, List[Dict[str, Any]]]:
         """

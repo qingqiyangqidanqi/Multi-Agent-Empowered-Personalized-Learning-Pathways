@@ -23,7 +23,7 @@ SERVER:
 
 # 启动哪个子服务（student: 和智能体学生进行交流; teacher: 助教进行个性化路径规划; quiz: 进行计算机自适应测试； full_run：同时启动所有服务 ）
 SERVICE_NAME:
-  NAME: quiz  # 支持配置的字段有 student/ teacher / quiz /full_run
+  NAME: teacher  # 支持配置的字段有 student/ teacher / quiz /full_run
 
 # LLM配置
 LLM:

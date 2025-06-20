@@ -88,7 +88,7 @@ async def student(
             try:
                 result = response_data
                 message.append({"role": "assistant", "content": result})
-                append_messages_to_talks_student(student_ID=input_data.student_id, new_messages=message)
+                append_messages_to_talks_student(student_ID=input_data.student_id, new_messages=message[-2:])
 
                 return result
             except Exception as e:

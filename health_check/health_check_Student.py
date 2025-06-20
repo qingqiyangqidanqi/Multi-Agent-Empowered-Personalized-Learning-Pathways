@@ -37,7 +37,13 @@ def check_health(student_id: str, talk: str = ""):
 
 # 示例用法
 if __name__ == "__main__":
-    # student_id = "S00003"
     student_id = "S00001"
-    talk = "你还爱我吗"
+    talk = """
+问题 10/10:
+[难度: 10] 折半查找具有 n 个元素的线性表，其时间复杂度为 ( ) 。
+A. O (n)
+B. O (log₂n)
+C. O (n²)
+D. O (nlog₂n)
+    """
     print(check_health(student_id,talk))
