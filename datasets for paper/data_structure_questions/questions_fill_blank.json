@@ -1,0 +1,1698 @@
+{
+"data": [
+{
+"knowledge_point_type": "数据结构基本概念和术语",
+"question": "数据结构被形式地定义为 (D,R), 其中 D 是____的有限集合，R 是 D 上的____有限集合。",
+"answer": "数据元素；关系",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数据结构三要素",
+"question": "数据结构包括数据的____、数据的____和数据的____这三个方面的内容。",
+"answer": "逻辑结构；存储结构；运算",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数据结构基本概念和术语",
+"question": "数据结构按逻辑结构可分为两大类，它们分别是____和____。",
+"answer": "线性结构；非线性结构",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数据结构基本概念和术语",
+"question": "线性结构中元素之间存在____关系，树形结构中元素之间存在____关系，图形结构中元素之间存在____关系。",
+"answer": "一对一；一对多；多对多",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数据结构基本概念和术语",
+"question": "在线性结构中，第一个结点没有前驱结点，其余每个结点有且只有____个前驱结点；最后一个结点没有后续结点，其余每个结点有且只有____个后续结点。",
+"answer": "1；1",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数据结构基本概念和术语",
+"question": "在树形结构中，树根结点没有____结点，其余每个结点有且只有____个前驱结点；叶子结点没有后续结点，其余每个结点的后续结点数可以任意多个。",
+"answer": "前驱；1",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数据结构基本概念和术语",
+"question": "在图形结构中，每个结点的前驱结点数和后续结点数可以____。",
+"answer": "任意多个",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数据结构三要素",
+"question": " 数据的存储结构可用四种基本的存储方法表示，它们分别是____、、、。",
+"answer": "顺序、链式、索引、散列",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数据结构三要素",
+"question": " 数据的运算最常用的有 5 种，它们分别是、、、、。",
+"answer": "插入、删除、修改、查找、排序",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "算法效率的度量",
+"question": "一个算法的效率可分为____效率和____效率。",
+"answer": "时间；空间",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "线性表的定义",
+"question": "程序段i=1;while (i<=n) i=i*2的时间复杂度为____。",
+"answer": "O (log₂n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的性质",
+"question": "数据结构的四种基本类型中，树形结构的元素是____关系。",
+"answer": "一对多",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "顺序表的定义",
+"question": "在顺序表中插入或删除一个元素，需要平均移动表中____元素，具体移动的元素个数与____和该元素在表中的____有关。",
+"answer": "一半；表长；位置",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "线性表的定义",
+"question": "线性表中结点的集合是____的，结点间的关系是____的。",
+"answer": "有限；一对一",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "顺序表的定义",
+"question": "向一个长度为 n 的向量的第 i 个元素 (1≤i≤n+1) 之前插入一个元素时，需向后移动____个元素。",
+"answer": "n-i+1",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "顺序表的定义",
+"question": "向一个长度为 n 的向量中删除第 i 个元素 (1≤i≤n) 时，需向前移动____个元素。",
+"answer": "n-i",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "顺序表的定义",
+"question": "在顺序表中访问任意一结点的时间复杂度均为____, 因此，顺序表也称为____的的数据结构。",
+"answer": "O (1)；随机存取",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "顺序表和链表的比较",
+"question": "顺序表中逻辑上相邻的元素的物理位置____相邻。单链表中逻辑上相邻的元素的物理位置____相邻。",
+"answer": "必定；不一定",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "单链表上基本操作的实现",
+"question": "在单链表中，除了首元结点外，任一结点的存储位置由____指示。",
+"answer": "其直接前驱结点的链域的值",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "单链表上基本操作的实现",
+"question": "在 n 个结点的单链表中要删除已知结点 p, 需找到它的____的地址，其时间复杂度为____。",
+"answer": "前驱结点；O (n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "队列的顺序存储结构",
+"question": "设循环队列的容量为 M, 其队头和队尾指针分别为 front 和 rear, 则循环队列中元素的个数为____。",
+"answer": "(rear - front + M) % M",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "队列的顺序存储结构",
+"question": "在具有 n 个元素的循环队列中，队满时具有____个元素。",
+"answer": "n-1",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "队列的顺序存储结构",
+"question": "设循环队列的容量为 70, 现经过一系列的入队和出队操作后，front 为 20,rear 为 11, 则队列中元素的个数为____。",
+"answer": "61",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "队列的顺序存储结构",
+"question": "已知循环队列的存储空间大小为 20, 且当前队列的头指针和尾指针的值分别为 8 和 3, 则该队列的当前的长度为____。",
+"answer": "15",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "二叉树的性质",
+"question": "具有 n 个结点的完全二叉树的深度是____。",
+"answer": "⌊log₂n⌋ + 1",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "哈夫曼树和哈夫曼编码",
+"question": "哈夫曼树是其树的带权路径长度____的二叉树。",
+"answer": "最小",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉树的性质",
+"question": " 在一棵二叉树中，度为 0 的结点的个数是 n0, 度为 2 的结点的个数为 n2, 则有 n0=。",
+"answer": "n2 + 1",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "树的基本术语",
+"question": "树内各结点度的____称为树的度。",
+"answer": "最大值",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的遍历与图的连通性",
+"question": "n 个顶点的连通图至少有____边。",
+"answer": "n-1 条",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的遍历与图的连通性",
+"question": "一个连通图的生成树是一个____它包含图中所有顶点，但只有足以构成一棵树的 n-1 条边。",
+"answer": "极小连通子图",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": "一个图的____表示法是惟一的。",
+"answer": "邻接矩阵",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的遍历",
+"question": "遍历图的基本方法有深度优先搜索和广度优先搜索，其中____是一个递归过程。",
+"answer": "深度优先搜索",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": " 在无向图 G 的邻接矩阵 A 中，若 A [i][j] 等于 1, 则 A [j][i] 等于。",
+"answer": "1",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的遍历与图的连通性",
+"question": "判定一个有向图是否存在回路，可以利用____。",
+"answer": "拓扑排序",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": "已知一个图的邻接矩阵表示，计算第 i 个结点的入度的方法是____。",
+"answer": "计算第 i 列非零元素的个数",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": "n 个顶点的无向图最多有____边。",
+"answer": "n (n-1)/2",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": "已知一个图的邻接矩阵表示，删除所有从第 i 个结点出发的边的方法是____。",
+"answer": "将邻接矩阵的第 i 行元素全部置为 0",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": "若以邻接矩阵表示有向图，则邻接矩阵上第 i 行中非零元素的个数即为顶点 vi 的____。",
+"answer": "出度",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "散列表的基本概念",
+"question": "在散列存储中，装填因子 α 的值越大，则存取元素时发生冲突的可能性就越____;α 值越小，则存取元素发生冲突的可能性就越____。",
+"answer": "大；小",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "串的模式匹配算法 ——KMP 算法",
+"question": "求子串在主串中首次出现的位置的运算称为____。",
+"answer": "模式匹配",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "串的定义",
+"question": "设 s=TAMA-TEACHER, 其长度是____。",
+"answer": "10",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "串的定义",
+"question": "两个串相等的充分必要条件是两个串的____相等且____对应位置字符相同。",
+"answer": "长度；对应位置字符",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "特殊矩阵的压缩存储",
+"question": "已知二维数组 A [m][n] 可采用行序为主方式存储，每个元素占 k 个存储单元，并且第一个元素的存储地址是 LOC (A [0][0]), 则 A [i][j] 的地址是____。",
+"answer": "LOC (A [0][0]) + (i×n + j)×k",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "广义表",
+"question": "广义表运算式 HEAD (TAIL ((a,b),(x,y,z))) 的结果是____。",
+"answer": "(x,y,z)",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "数组的存储结构",
+"question": "二维数组，可以按照____和____两种不同的存储方式。",
+"answer": "行优先；列优先",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "稀疏矩阵",
+"question": " 稀疏矩阵的压缩存储方式有:和。",
+"answer": "三元组表；十字链表",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉树的遍历",
+"question": "中序遍历一棵二叉排序树的结点，可得到排好序的结点序列，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉树的存储结构",
+"question": "完全二叉树某结点有右子树，则必然有左子树，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "哈夫曼树和哈夫曼编码",
+"question": "用 5 个权值 {3,2,4,5,1} 构造的哈夫曼树的带权路径长度是____。",
+"answer": "33",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "图的遍历与图的连通性",
+"question": "从源点到终点的最短路径是唯一的，这种说法（）。",
+"answer": "错误",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "排序的定义",
+"question": "快速排序在所有排序方法中最快，而且所需附加空间也最少，这种说法（）。",
+"answer": "错误",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "直接插入排序",
+"question": "直接插入排序是不稳定的排序方法，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "选择排序",
+"question": "选择排序是一种不稳定的排序方法，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "散列表处理冲突的方法",
+"question": "解决哈希冲突的主要方法有线性探测法、再哈希法、链地址法，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "折半查找",
+"question": "对线性表进行折半查找时，要求线性表必须以顺序方式存储且结点按关键字有序排序，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉排序树 (BST)",
+"question": "二叉排序树的任意一棵子树中，关键字最小的结点必无左孩子，关键字最大的结点必无右孩子，这种说法（）。",
+"answer": "正确",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": "无向图的邻接矩阵一定是对称矩阵，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "队列的基本概念",
+"question": "队列是一种插入与删除操作分别在表的两端进行的线性表，是一种先进后出型结构，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "栈的基本概念",
+"question": "栈是一种对所有插入、删除操作限于在表的一端进行的线性表，是一种后进先出型结构，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉树的性质",
+"question": "深度为 k 的二叉树至多有____个结点。",
+"answer": "2^k - 1",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "完全二叉树",
+"question": "用顺序存储的方法，将完全二叉树中所有结点按层逐个从左到右的顺序存放在一维数组 R [1..N] 中，若结点 R [i] 有右孩子，则其右孩子是____。",
+"answer": "R [2i+1]",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的遍历",
+"question": "设 a,b 为一棵二叉树上的两个结点，在中序遍历时，a 在 b 前面的条件是 a 在 b 的左方，这种说法（）。",
+"answer": "正确",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的遍历",
+"question": "设一棵二叉树的中序遍历序列:badce, 后序遍历序列:bdeca, 则二叉树先序遍历序列为____。",
+"answer": "abcde",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "完全二叉树",
+"question": "在一棵具有 5 层的满二叉树中结点总数为____。",
+"answer": "31",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的构造",
+"question": "由二叉树的前序和后序遍历序列不能惟一确定这棵二叉树，这种说法（）。",
+"answer": "正确",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的性质",
+"question": "某二叉树的中序序列为 ABCDEFG, 后序序列为 BDCAFGE, 则其左子树中结点数目为____。",
+"answer": "4",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "哈夫曼树和哈夫曼编码",
+"question": "若以 (4,5,6,7,8) 作为权值构造哈夫曼树，则该树的带权路径长度为____。",
+"answer": "69",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "完全二叉树",
+"question": "将一棵有 100 个结点的完全二叉树从根这一层开始，每一层上从左到右依次对结点进行编号，根结点的编号为 1, 则编号为 49 的结点的左孩子编号为____。",
+"answer": "98",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "图的遍历",
+"question": "图的深度优先遍历序列和广度优先遍历序列不是惟一的，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": "邻接表只能用于存储有向图，而邻接矩阵则可存储有向图和无向图，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的遍历与图的连通性",
+"question": "任何一个无向连通图的最小生成树只有一棵，这种说法（）。",
+"answer": "错误",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "拓扑排序",
+"question": "任一个有向图的拓扑序列有一个或多个，这种说法（）。",
+"answer": "正确",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "图的基本操作",
+"question": "在一个有向图中，所有顶点的入度之和等于所有顶点的出度之和的____倍。",
+"answer": "1",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "哈希查找及性能分析",
+"question": "在散列查找中，平均查找长度主要与____有关。",
+"answer": "装填因子",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉排序树 (BST)",
+"question": "对一棵二叉排序树按____遍历，可得到结点值从小到大的排列序列。",
+"answer": "中序",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "排序的稳定性",
+"question": "快速排序是一种稳定的排序方法，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "归并排序",
+"question": "归并排序是一种稳定的排序方法，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "希尔排序",
+"question": "希尔排序的增量序列必须是递减的，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "算法的基本概念",
+"question": " 计算机中的算法指的是解决某一个问题的有限运算序列，它必须具备输入、输出、等 5 个特性。",
+"answer": "确定性、有穷性、可行性",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "栈的基本概念",
+"question": " 栈是一种特殊的线性表，允许插入和删除运算的一端称为。不允许插入和删除运算的一端称为____。",
+"answer": "栈顶；栈底",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "队列的基本概念",
+"question": "队列是被限定为只能在表的一端进行插入运算，在表的另一端进行删除运算的线性表，这两端分别称为____和____。",
+"answer": "队尾；队首",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "循环队列",
+"question": "判断一个循环队列 Q (最多 n 个元素) 为满的条件是____。",
+"answer": "Q->front == (Q->rear + 1) % n",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "栈的应用",
+"question": "设计一个判别表达式中括号是否配对的算法，采用____数据结构最佳。",
+"answer": "栈",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "串的模式匹配算法 ——KMP 算法",
+"question": "已知串 S=aaab, 则 next 数组值为____。",
+"answer": "0123",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "串的定义",
+"question": "空串和空格串____(相同 / 不相同)。",
+"answer": "不相同",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数组的存储结构",
+"question": "数组 A [0..5,0..6] 的每个元素占 5 个字节，将其按列优先次序存储在起始地址为 1000 的内存单元中，则元素 A [5][5] 的地址是____。",
+"answer": "1175",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "广义表",
+"question": "设广义表 L=((a,b,c)), 则 L 的长度和深度分别为____。",
+"answer": "1 和 2",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "稀疏矩阵",
+"question": "稀疏矩阵的常见压缩存储方法有____和____两种。",
+"answer": "三元组；十字链表",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉树的性质",
+"question": "假定在一棵二叉树中，度为 2 的结点数为 15, 度为 1 的结点数为 30, 则叶子结点数为____个。",
+"answer": "16",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "完全二叉树",
+"question": "完全二叉树的某结点若无左孩子，则它必是____结点。",
+"answer": "叶子",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": "具有 n 个顶点的图，若采用邻接矩阵表示，则该矩阵的大小为____。",
+"answer": "n×n",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的遍历与图的连通性",
+"question": "如果从无向图的任一顶点出发进行一次深度优先搜索即可访问所有顶点，则该图一定是____图。",
+"answer": "连通",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "拓扑排序",
+"question": "关键路径是事件结点网络中从源点到汇点的____路径。",
+"answer": "最长",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的遍历",
+"question": "采用邻接表存储的图，其深度优先遍历类似于二叉树的____遍历。",
+"answer": "先序",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "折半查找",
+"question": "已知一个有序表为 (11,22,33,44,55,66,77,88,99), 则折半查找 55 需要比较____次。",
+"answer": "1",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "散列表处理冲突的方法",
+"question": " 解决哈希冲突的主要方法有线性探测法、再哈希法、。",
+"answer": "链地址法",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉排序树 (BST)",
+"question": "在二叉排序树中，左子树中所有结点的值____根结点的值，右子树中所有结点的值____根结点的值。",
+"answer": "小于；大于",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "直接插入排序",
+"question": " 直接插入排序在初始数据基本正序时的时间复杂度为。",
+"answer": "O (n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "快速排序",
+"question": "快速排序在初始数据基本反序时的时间复杂度为____。",
+"answer": "O (n²)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "算法效率的度量",
+"question": "算法分析的两个主要方面是____和____。",
+"answer": "空间复杂度；时间复杂度",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "线性表的定义",
+"question": " 具有线性结构的数据结构是____、、。",
+"answer": "线性表、栈、队列",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "算法的基本概念",
+"question": "算法是____的有限运算序列。",
+"answer": "解决问题",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "时间复杂度计算",
+"question": "程序段for (i=0;i<m;i++) for (j=0;j<n;j++) a [i][j]=i*j;的时间复杂度是____。",
+"answer": "O (m*n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "数据结构基本概念",
+"question": "数据结构是一门研究非数值计算的程序设计问题中计算机的数据元素以及它们之间的____和运算等的学科。",
+"answer": "关系",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "抽象数据类型",
+"question": " 抽象数据类型的三个组成部分分别为____、****和****。",
+"answer": "数据对象、数据关系、基本操作",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "线性表的存储结构",
+"question": "线性表的顺序存储结构是一种____存储结构，链表是一种____存储结构。",
+"answer": "随机存取；链式",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "单链表的定义",
+"question": "不带头结点的单链表 head 为空的判定条件是____。",
+"answer": "head == NULL",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "循环链表",
+"question": "非空的循环单链表 head 的尾结点 p 满足____。",
+"answer": "p->next == head",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "双链表",
+"question": "在双向循环链表中，在 p 指针所指的结点后插入一个指针 q 所指向的新结点，修改指针的操作是____。",
+"answer": "q->prior = p; q->next = p->next; p->next->prior = q; p->next = q;",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "顺序表的定义",
+"question": "一个顺序表的第一个元素的存储地址是 90, 每个元素的长度为 2, 则第 6 个元素的存储地址是____。",
+"answer": "100",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "栈的顺序存储结构",
+"question": "一个顺序栈 s, 其栈顶指针为 top, 则将元素 e 入栈的操作是____。",
+"answer": "s->top++; (s->top) = e;",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "队列的链式存储结构",
+"question": "在一个链队列中，front 和 rear 分别为头指针和尾指针，则插入一个结点 s 的操作为____。",
+"answer": "rear->next = s; rear = s;",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "表达式后缀形式",
+"question": " 表达式 a(b+c)-d 的后缀表达式是____。",
+"answer": "abc+*d-",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "哈夫曼编码",
+"question": "用权值集合 {12,4,5,6,1,2} 构造哈夫曼树，其带权路径长度为____。",
+"answer": "69",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "图的遍历",
+"question": "图的广度优先遍历算法类似于二叉树的____遍历。",
+"answer": "层次",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "拓扑排序",
+"question": "拓扑排序算法是通过重复选择具有____个前驱顶点的过程来完成的。",
+"answer": "0",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "散列函数",
+"question": "在散列函数 H (key)=key% p 中，p 应取____。",
+"answer": "质数",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉排序树 (BST)",
+"question": "二叉排序树的查找效率与二叉树的____有关。",
+"answer": "形态",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "排序算法的比较",
+"question": "在插入和选择排序中，若初始数据基本正序，则选用____排序；若初始数据基本反序，则选用____排序。",
+"answer": "插入；选择",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "堆排序",
+"question": "堆排序所需要的附加存储空间是____。",
+"answer": "O (1)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "数据结构基本概念",
+"question": " 研究数据结构就是研究数据的____、****及其基本操作。",
+"answer": "逻辑结构、存储结构",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "时间复杂度计算",
+"question": "程序段i=1; while (i<=n) i=i*3; 的时间复杂度为****。",
+"answer": "O (log₃n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "线性表的存储结构",
+"question": "线性表采用链式存储时，结点的存储地址____(必须连续 / 连续与否均可)。",
+"answer": "连续与否均可",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "循环队列",
+"question": "判断一个循环队列 Q (空间大小为 M) 为空的条件是____。",
+"answer": "Q->front == Q->rear",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "串的模式匹配算法",
+"question": "模式匹配是指____。",
+"answer": "求子串在主串中首次出现的位置",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "数组的存储结构",
+"question": "二维数组 A [8][10] 中，每个数组元素占 4 个存储单元，已知 A [2][2] 按行优先顺序存放的存储地址是 1000, 则 A [0][0] 的存储地址是____。",
+"answer": "912",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "广义表",
+"question": "广义表 ((a),a) 的表头是____, 表尾是____。",
+"answer": "(a)；(a)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的性质",
+"question": "完全二叉树中，度为 1 的结点数只能是____或____。",
+"answer": "0；1",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "图的遍历",
+"question": "有向图的邻接表中，顶点 vi 的出度是对应顶点链表中结点的个数，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "最短路径",
+"question": "迪杰斯特拉算法是按____次序求最短路径的。",
+"answer": "路径长度递增",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "散列查找",
+"question": " 在散列查找中，处理冲突的方法主要有____、和。",
+"answer": "线性探测法、再哈希法、链地址法",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉排序树 (BST)",
+"question": "平衡二叉树是指左右子树的高度差的绝对值不大于____的二叉树。",
+"answer": "1",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "插入排序",
+"question": "直接插入排序的平均时间复杂度为____。",
+"answer": "O (n²)",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "归并排序",
+"question": "归并排序的平均时间复杂度为____。",
+"answer": "O (nlog₂n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "线性表的存储结构",
+"question": "单链表不是一种随机存储结构，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "线性表的存储结构",
+"question": "在具有头结点的单链表中，头指针指向链表的第一个数据结点，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "循环链表",
+"question": "用循环单链表表示的链队列中，可以不设队头指针，仅在队尾设置队尾指针，这种说法（）。",
+"answer": "正确",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "顺序存储结构",
+"question": "顺序存储方式只能用于存储线性结构，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "线性表的存储结构",
+"question": "在线性表的顺序存储结构中，逻辑上相邻的两个元素在物理位置上不一定是相邻的，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "链式存储结构",
+"question": "链式存储的线性表可以随机存取，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉树的遍历",
+"question": "任何一棵二叉树的叶结点在先序、中序和后序遍历序列中的相对次序（）（发生改变 / 不发生改变）。",
+"answer": "不发生改变",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "图的遍历",
+"question": "图的深度优先搜索序列是惟一的，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "哈夫曼树和哈夫曼编码",
+"question": "具有 n 个叶子结点的哈夫曼树，其结点总数为____。",
+"answer": "2n-1",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "排序的稳定性",
+"question": "冒泡排序是一种稳定的排序方法，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "直接选择排序",
+"question": "直接选择排序是一种稳定的排序方法，这种说法（）。",
+"answer": "错误",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "基数排序",
+"question": "基数排序是一种稳定的排序方法，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "希尔排序",
+"question": "希尔排序是一种不稳定的排序方法，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "堆排序",
+"question": "堆排序是一种不稳定的排序方法，这种说法（）。",
+"answer": "正确",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "归并排序",
+"question": "归并排序的空间复杂度为____。",
+"answer": "O (n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "外部排序",
+"question": "外部排序的基本方法是____。",
+"answer": "归并排序",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "B 树",
+"question": "m 阶 B - 树中的 m 是指每个结点最多具有____棵子树。",
+"answer": "m",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "散列表的基本概念",
+"question": "装填因子 α 是指____与____的比值。",
+"answer": "哈希表中已存入的元素个数；哈希表的长度",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的存储结构",
+"question": "二叉树的链式存储结构中，每个结点通常包含____个指针域。",
+"answer": "2",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的存储结构",
+"question": "邻接多重表是无向图的一种____存储结构。",
+"answer": "链式",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "拓扑排序",
+"question": "一个有向无环图的拓扑排序序列____（是惟一的 / 不一定是惟一的）。",
+"answer": "不一定是惟一的",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "关键路径",
+"question": "AOE 网中，关键路径是从源点到汇点的____路径。",
+"answer": "最长",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "线性表的基本操作",
+"question": "在顺序表中，插入一个元素所需移动的元素平均数是____。",
+"answer": "(n+1)/2",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "循环队列",
+"question": "当用大小为 N 的数组存储顺序循环队列时，该队列的最大长度为____。",
+"answer": "N-1",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "串的模式匹配算法 ——KMP 算法",
+"question": "KMP 算法所需的附加空间为____。",
+"answer": "O (m)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "广义表",
+"question": "广义表 A=((a),a) 的表尾是____。",
+"answer": "(a)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的遍历",
+"question": "已知二叉树的前序遍历序列为 ABCDEFGH, 中序遍历序列为 CBEDEAGH, 则该二叉树的后序遍历序列为____。",
+"answer": "CEDBHGFA",
+"difficulty": 5,
+"bloom_level": "d"
+},
+{
+"knowledge_point_type": "图的最小生成树",
+"question": "普里姆算法适用于求____图的最小生成树；克鲁斯卡尔算法适用于求____图的最小生成树。",
+"answer": "稠密；稀疏",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "散列函数的构造方法",
+"question": "数字分析法、除余法、平方取中法属于____的构造方法。",
+"answer": "散列函数",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉排序树 (BST)",
+"question": "在二叉排序树中删除一个结点后，仍要保持二叉排序树的特性，则删除操作分____种情况处理。",
+"answer": "3",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "快速排序",
+"question": "快速排序在平均情况下的时间复杂度为____。",
+"answer": "O (nlog₂n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "堆排序",
+"question": "堆是一种____结构。",
+"answer": "完全二叉树",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "归并排序",
+"question": "二路归并排序的平均时间复杂度为____。",
+"answer": "O (nlog₂n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "基数排序",
+"question": "基数排序是一种____排序方法。",
+"answer": "稳定的线性时间",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "外部排序",
+"question": "外部排序中归并段的合并通常采用____算法。",
+"answer": "多路平衡归并",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "B + 树的基本概念",
+"question": "B + 树中所有叶子结点包含____和指向相应记录的指针。",
+"answer": "全部关键字",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "线索二叉树",
+"question": "线索二叉树的左线索指向其____，右线索指向其____。",
+"answer": "前驱结点；后继结点",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "图的连通性",
+"question": "无向图中的极大连通子图称为____。",
+"answer": "连通分量",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "最短路径",
+"question": "弗洛伊德算法是求图中____最短路径的算法。",
+"answer": "所有顶点之间",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "分块查找",
+"question": "分块查找中，索引表的作用是____。",
+"answer": "存储各块的最大关键字和块起始地址",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "直接插入排序",
+"question": "直接插入排序在最好情况下的时间复杂度为____。",
+"answer": "O (n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "希尔排序",
+"question": "希尔排序的增量序列的最后一个增量必须是____。",
+"answer": "1",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "冒泡排序",
+"question": "冒泡排序在最坏情况下的时间复杂度为____。",
+"answer": "O (n²)",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "线性表的存储结构",
+"question": "在单链表中，指针 p 指向元素为 x 的结点，实现删除 x 的后继的语句是____。",
+"answer": "p->next = p->next->next;",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "循环队列",
+"question": "循环队列的队头和队尾指针分别为 front 和 rear, 则判断循环队列为空的条件是____。",
+"answer": "front == rear",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "串的模式匹配算法 ——KMP 算法",
+"question": "KMP 算法的最大特点是指示主串的指针不需要____。",
+"answer": "回溯",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "广义表",
+"question": "广义表 (a,b,c) 的表尾是____。",
+"answer": "(b,c)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的遍历",
+"question": "已知二叉树的中序遍历序列是 ACBDHIFE, 后序遍历序列是 ABDCFHEG, 则该二叉树的先序遍历序列为____。",
+"answer": "EDCHBGFIA",
+"difficulty": 5,
+"bloom_level": "d"
+},
+{
+"knowledge_point_type": "图的最小生成树",
+"question": "最小生成树的 Kruskal 算法基于____原理。",
+"answer": "贪心",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "散列存储",
+"question": "散列存储的基本思想是由____确定记录的存储地址。",
+"answer": "关键字",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "二叉排序树 (BST)",
+"question": "在二叉排序树中，若删除的结点是叶子结点，则直接____该结点。",
+"answer": "删除",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "快速排序",
+"question": "快速排序在最坏情况下的时间复杂度为____。",
+"answer": "O (n²)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "堆排序",
+"question": "堆排序的时间复杂度为____。",
+"answer": "O (nlog₂n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "归并排序",
+"question": "归并排序是一种____的排序方法。",
+"answer": "稳定",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "基数排序",
+"question": "基数排序的时间复杂度为____。",
+"answer": "O (d (n + r))",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "外部排序",
+"question": "外部排序中，置换 - 选择排序用于生成____。",
+"answer": "初始归并段",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "B 树",
+"question": "在 m 阶 B - 树中，除根结点外的分支结点至少包含____棵子树。",
+"answer": "⌈m/2⌉",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "线索二叉树",
+"question": "在中序线索二叉树中，若某结点有左子树，则其左指针指向____, 否则指向____。",
+"answer": "左子树；前驱结点",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "图的连通性",
+"question": "有向图中的极大强连通子图称为____。",
+"answer": "强连通分量",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "最短路径",
+"question": "迪杰斯特拉算法适用于求解____图的最短路径。",
+"answer": "带权有向",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "分块查找",
+"question": "分块查找的平均查找长度由____和____两部分组成。",
+"answer": "索引表查找；块内查找",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "折半插入排序",
+"question": "折半插入排序的平均时间复杂度为____。",
+"answer": "O (n²)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "希尔排序",
+"question": "希尔排序的时间复杂度为____。",
+"answer": "O (n^1.3)（平均情况）",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "冒泡排序",
+"question": "冒泡排序在最好情况下的时间复杂度为____。",
+"answer": "O (n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "直接选择排序",
+"question": "直接选择排序的平均时间复杂度为____。",
+"answer": "O (n²)",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "堆排序",
+"question": "堆排序的稳定性为____（稳定 / 不稳定）。",
+"answer": "不稳定",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "归并排序",
+"question": "归并排序的空间复杂度为____。",
+"answer": "O (n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "基数排序",
+"question": "基数排序是一种基于____的排序方法。",
+"answer": "多关键字",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "外部排序",
+"question": "外部排序中采用置换 - 选择排序可以得到____归并段。",
+"answer": "最长",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "B 树",
+"question": "在 B - 树中，所有叶子结点都位于____层。",
+"answer": "同一",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "线索二叉树",
+"question": "后序线索二叉树中，若某结点的右线索存在，则其指向该结点的____。",
+"answer": "后序后继结点",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "二叉树的性质",
+"question": "完全二叉树中第 i 层上至多有____个结点（根结点为第 1 层）。",
+"answer": "2^(i-1)",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "哈夫曼树和哈夫曼编码",
+"question": "哈夫曼树中权值越大的叶子结点离根越____（近 / 远）。",
+"answer": "近",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "图的邻接表存储",
+"question": "无向图的邻接表中，每条边在邻接表中出现____次。",
+"answer": "2",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "图的连通性",
+"question": "具有 n 个顶点的连通无向图至少有____条边。",
+"answer": "n-1",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "哈希表处理冲突的方法",
+"question": "链地址法处理冲突时，每个链表中的结点具有相同的____。",
+"answer": "哈希值",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "B 树的基本操作",
+"question": "在 B - 树的插入操作中，当结点中的关键字数目超过 m-1 时，需要进行____操作。",
+"answer": "分裂",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "排序算法的稳定性",
+"question": "快速排序是____（稳定 / 不稳定）的排序算法。",
+"answer": "不稳定",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "插入排序",
+"question": "直接插入排序的稳定性为____（稳定 / 不稳定）。",
+"answer": "稳定",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "归并排序",
+"question": "二路归并排序是一种____（稳定 / 不稳定）的排序算法。",
+"answer": "稳定",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "基数排序",
+"question": "基数排序的稳定性为____（稳定 / 不稳定）。",
+"answer": "稳定",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "外部排序",
+"question": "外部排序主要由____和____两部分组成。",
+"answer": "生成初始归并段；归并排序",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "置换 - 选择排序",
+"question": "置换 - 选择排序的作用是生成____。",
+"answer": "初始归并段",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "最佳归并树",
+"question": "最佳归并树是指____的归并树。",
+"answer": "带权路径长度最小",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "二叉树的遍历",
+"question": "已知二叉树的后序遍历序列是 DABEC，中序遍历序列是 DEBAC，则先序遍历序列是____。",
+"answer": "EDABC",
+"difficulty": 5,
+"bloom_level": "d"
+},
+{
+"knowledge_point_type": "线索二叉树",
+"question": "在前序线索二叉树中，若某结点无左子树，则其左线索指向____。",
+"answer": "前驱结点",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "图的最小生成树",
+"question": "Kruskal 算法每次选择边时遵循____原则。",
+"answer": "最小权值",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "B + 树的基本概念",
+"question": "B + 树中所有非叶子结点的作用是____。",
+"answer": "索引",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "排序算法的比较",
+"question": "在平均情况下，____排序的时间复杂度最低。",
+"answer": "快速",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "堆排序",
+"question": "堆排序的初始建堆过程需要____时间。",
+"answer": "O (n)",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "分块查找",
+"question": "分块查找中，若索引表长度为 m，每个块的长度为 n，则平均查找长度为____。",
+"answer": "(m + n)/2",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "二叉树的层序遍历",
+"question": "二叉树的层序遍历需要借助____数据结构。",
+"answer": "队列",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "弗洛伊德算法",
+"question": "弗洛伊德算法用于求解图中____的最短路径。",
+"answer": "所有顶点对之间",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "排序算法的空间复杂度",
+"question": "快速排序的空间复杂度在平均情况下为____。",
+"answer": "O (log₂n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "B 树和 B + 树的区别",
+"question": "B + 树中叶子结点包含____，且所有叶子结点按顺序链接。",
+"answer": "全部关键字和指向记录的指针",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "线索二叉树的实现",
+"question": "中序线索二叉树中，若某结点的左线索为 1，则其左指针指向____。",
+"answer": "前驱结点",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "图的最短路径算法",
+"question": "贝尔曼 - 福特算法可以处理____的最短路径问题。",
+"answer": "带负权边",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "插入排序的稳定性",
+"question": "希尔排序是____（稳定 / 不稳定）的排序算法。",
+"answer": "不稳定",
+"difficulty": 2,
+"bloom_level": "a"
+},
+{
+"knowledge_point_type": "归并排序的空间复杂度",
+"question": "二路归并排序的空间复杂度为____。",
+"answer": "O (n)",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "外部排序的归并",
+"question": "外部排序中，k 路归并需要____个输入缓冲区和____个输出缓冲区。",
+"answer": "k；1",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "二叉树的遍历",
+"question": "已知二叉树的先序遍历序列为 ABDGHCEFI，中序遍历序列为 GDHBAECIF，则后序遍历序列为____。",
+"answer": "GHDBEIFCA",
+"difficulty": 5,
+"bloom_level": "d"
+},
+{
+"knowledge_point_type": "线索二叉树",
+"question": "后序线索二叉树中，若某结点的左线索为 1，则其左指针指向____。",
+"answer": "前驱结点",
+"difficulty": 4,
+"bloom_level": "c"
+},
+{
+"knowledge_point_type": "图的最小生成树",
+"question": "普里姆算法的时间复杂度为____，适用于____图。",
+"answer": "O (n²)；稠密",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "B 树的插入操作",
+"question": "在 m 阶 B - 树中，插入结点时若导致结点分裂，分裂后原结点和新结点各包含____和____个关键字。",
+"answer": "⌊m/2⌋-1；⌈m/2⌉-1",
+"difficulty": 5,
+"bloom_level": "d"
+},
+{
+"knowledge_point_type": "排序算法的比较",
+"question": " 在所有内部排序算法中，排序是稳定的且时间复杂度最低（O (nlog₂n)）。",
+"answer": "归并",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "基数排序的实现",
+"question": "基数排序按低位优先排序时，每一趟排序依据关键字的____位。",
+"answer": "当前",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "外部排序的性能",
+"question": "外部排序的时间主要花费在____上。",
+"answer": "读写外存",
+"difficulty": 3,
+"bloom_level": "b"
+},
+{
+"knowledge_point_type": "二叉树的性质",
+"question": "一棵满二叉树的叶子结点数为 n，则其总结点数为____。",
+"answer": "2n-1",
+"difficulty": 3,
+"bloom_level": "b"
+}
+]
+}
